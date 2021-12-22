@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import messages
 from django.core.signing import BadSignature
 from django.shortcuts import redirect, render
-from django.utils.translation import ugettext as _, ugettext_lazy
+from django.utils.translation import gettext as _, gettext_lazy
 
 from newsletter_subscription.utils import (
     get_signer, send_subscription_mail, send_unsubscription_mail)
@@ -10,17 +10,17 @@ from newsletter_subscription.utils import (
 
 class NewsletterForm(forms.Form):
     email = forms.EmailField(
-        label=ugettext_lazy('email address'),
+        label=gettext_lazy('email address'),
         max_length=254,
         widget=forms.TextInput(attrs={
-            'placeholder': ugettext_lazy('email address'),
+            'placeholder': gettext_lazy('email address'),
         }),
     )
     action = forms.ChoiceField(
-        label=ugettext_lazy('action'),
+        label=gettext_lazy('action'),
         choices=(
-            ('subscribe', ugettext_lazy('subscribe')),
-            ('unsubscribe', ugettext_lazy('unsubscribe')),
+            ('subscribe', gettext_lazy('subscribe')),
+            ('unsubscribe', gettext_lazy('unsubscribe')),
         ),
         widget=forms.RadioSelect,
         initial='subscribe',
