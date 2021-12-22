@@ -32,7 +32,7 @@ setup(
         ],
     },
     install_requires=[
-        'Django>=1.8',
+        'Django>=3.0.1',
         # Yes, newsletter_subscription can be used without towel. towel is
         # only a requirement if you want to use the bundled templates.
     ],
